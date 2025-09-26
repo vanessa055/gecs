@@ -1,0 +1,114 @@
+:root {
+    --color-barra-lateral: #021E39;
+    --color-texto: rgb(0, 0, 0);
+    --color-texto-menu: rgb(134, 136, 144);
+    --color-menu-hover: rgb(255 183 3);
+    --color-menu-hover-text: rgb(0, 0, 0);
+    --color-boton-texto: rgb(255, 255, 255);
+    --color-linea: rgb(255 183 3);
+    --color-switch-base: rgb(143, 146, 155);
+    --color-switch-circulo: rgb(3, 3, 3);
+    --color-scroll: rgb(192, 192, 192);
+    --color-scroll-hover: rgb(134, 134, 134);
+    --color-body: white;
+    --color-moon: black;
+    --color-contenedor: #021E39;
+}
+
+/* Fondo general */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #0c0f1d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Caja principal */
+.login-box {
+  display: flex;
+  background: #0c0f1d;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  overflow: hidden;
+  width: 350px;
+  height: 400px;
+}
+
+/* Lado izquierdo */
+.login {
+  flex: 1;
+  padding: 40px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login h2 {
+  margin-bottom: 20px;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+}
+
+.input-box i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+/* Botón */
+.btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: linear-gradient(to right, #00f2fe, #4facfe);
+  color: #000;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+}
+
+/* Texto de registro */
+.signup-text {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.signup-text a {
+  color: #00f2fe;
+  text-decoration: none;
+}
+
+

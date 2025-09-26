@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+:root {
+    --color-barra-lateral: #021E39;
+    --color-texto: rgb(0, 0, 0);
+    --color-texto-menu: rgb(134, 136, 144);
+    --color-menu-hover: rgb(255 183 3);
+    --color-menu-hover-text: rgb(0, 0, 0);
+    --color-boton-texto: rgb(255, 255, 255);
+    --color-linea: rgb(255 183 3);
+    --color-switch-base: rgb(143, 146, 155);
+    --color-switch-circulo: rgb(3, 3, 3);
+    --color-scroll: rgb(192, 192, 192);
+    --color-scroll-hover: rgb(134, 134, 134);
+    --color-body: white;
+    --color-moon: black;
+    --color-contenedor: #021E39;
+}
+
+
+.container > div.content
+{
+    padding-top: 10px;
+    background-color:var(--color-body)
+    
+}
+
+
+.titulo {
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 10px;
+  
+}
+
+/* Caja del formulario */
+.nuevo-diagnostico {
+  width: 550px;
+  margin: 3px auto;
+  border: 1px solid #ffb703;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+  
+}
+
+
+
+.header-form {
+  background: var(--color-contenedor);
+  color: #fff;
+  padding: 5px;
+  text-align: center;   
+  font-weight: bold;
+  border-bottom: 4px solid #ffb703;
+}
+
+.formulario {
+  width: 500px !important;
+  padding: 8px 0 10px 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+
+}
+
+.formulario input,
+.formulario select {
+  width: 90%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #888;
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+
+
+/* Barra de búsqueda y filtros */
+.busqueda {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.busqueda input {
+  flex: 1;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
+
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.filtros button {
+  padding: 5px 12px;
+  border: 1px solid #000;
+  border-radius: 15px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+}
+.filtros button:hover {
+  background: #eee;
+}
+
+.btn-editar {
+  background: none;
+  border: 1px solid #000;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+thead {
+  background: #f2f2f2;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background: #2c6097;
+  color: var(--color-contenedor);
+}
+tbody tr:nth-child(odd) {
+  background: var(--color-contenedor);
+  color: black;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .nuevo-diagnostico {
+    width: 95%;
+  }
+  .busqueda {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .busqueda input {
+    width: 100%;
+  }
+}
+
+
+.formulario__grupo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario__input-error {
+  font-size: 12px;
+  color: #bb2929;
+  display: none;
+  margin-top: 4px;
+}
+
+.formulario__input-error-activo {
+  display: block;
+}
+
+/* Estados de validación */
+.formulario__grupo-correcto input,
+.formulario__grupo-correcto select {
+  border: 2px solid green;
+}
+
+.formulario__grupo-incorrecto input,
+.formulario__grupo-incorrecto select {
+  border: 2px solid #bb2929;
+}
+
+.btn-guardar {
+  background: var(--color-contenedor);
+  color: #fff;
+  border: none;
+  padding: 12px 0px !important;
+  border-radius: 5px !important;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out !important;
+}
+.btn-guardar:hover {
+  background: var(--color-linea);
+  color: var(--color-contenedor);
+}
+
+
+/*////////////////////////////////////////-------tabla para mostrar diagnósticos----//////////////////////////////////////////*/
+
+table thead
+{
+  background-color: var(--color-contenedor);
+  color: var(--color-body);
+}
+
+
+  /* Haz que la tabla se expanda correctamente */
+  .dataTables_wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table.dataTable {
+    width: 100% !important;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+
+  /* Para que las columnas no se vean apretadas */
+  table.dataTable th,
+  table.dataTable td {
+    white-space: nowrap;
+    padding: 10px;
+  }
+
+  /* Mejor alineación con el formulario */
+  .contenedor-tabla {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+  }
+
+
+
