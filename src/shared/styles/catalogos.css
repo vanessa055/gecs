@@ -17,7 +17,6 @@
     --color-contenedor: #021E39;
 }
 
-
 colgroup
 {
   background-color: #021e392a;
@@ -60,6 +59,9 @@ colgroup
   font-weight: bold;
   border-bottom: 4px solid #ffb703;
 }
+
+
+
 
 
 /* Contenedor de ordenamiento */
@@ -185,7 +187,6 @@ tbody tr:nth-child(odd) {
 .formulario label
 {
   padding: 5px 0 2px 20px;
-  
 }
 
 
@@ -446,7 +447,7 @@ table thead
 }
 
 .modal-contenido button {
-  background-color: #3085d6;
+  background-color: rgb(88, 122, 154);
   color: white;
   border: none;
   padding: 8px 18px;
@@ -455,12 +456,10 @@ table thead
 }
 
 .modal-contenido button:hover {
-  background-color: #2563b3;
+  background-color: rgb(88, 122, 154);
 }
 
 @keyframes aparecer {
   from { transform: scale(0.7); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
-
-

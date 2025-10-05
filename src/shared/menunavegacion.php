@@ -11,7 +11,7 @@
         <nav class="navegacion">
             <ul>
                 <li>
-                    <a href="GeCS/public/index.php" title="menu">
+                    <a href="/gecs/public/index.php" title="menu">
                         <svg
                             name="home-outline"
                             xmlns="http://www.w3.org/2000/svg"

@@ -6,15 +6,15 @@ header('Content-Type: application/json');
 $response = ['status' => 'error', 'message' => 'Ocurrió un error.'];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $Comorbilidad = trim($_POST['Comorbilidad']);
+    $Departamento = trim($_POST['Departamento']);
     $Id_Estado = 1;
 
-    if (!empty($Comorbilidad)) {
+    if (!empty($Departamento)) {
         try {
             // Verificar existencia
-            $sql_check = "SELECT COUNT(*) FROM comorbilidades WHERE Comorbilidad = :Comorbilidad";
+            $sql_check = "SELECT COUNT(*) FROM departamentos WHERE Departamento = :Departamento";
             $stmt_check = $pdo->prepare($sql_check);
-            $stmt_check->execute([':Comorbilidad' => $Comorbilidad]);
+            $stmt_check->execute([':Departamento' => $Departamento]);
             $existe = $stmt_check->fetchColumn();
 
             if ($existe > 0) {
@@ -24,11 +24,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
 
             // Insertar si no existe
-            $sql_insert = "INSERT INTO comorbilidades (Comorbilidad,  Id_Estado) 
-                           VALUES (:Comorbilidad,  :Id_Estado)";
+            $sql_insert = "INSERT INTO departamentos (Departamento,  Id_Estado) 
+                           VALUES (:Departamento,  :Id_Estado)";
             $stmt_insert = $pdo->prepare($sql_insert);
             $stmt_insert->execute([
-                ':Comorbilidad' => $Comorbilidad,
+                ':Departamento' => $Departamento,
                 ':Id_Estado' => $Id_Estado
             ]);
 

@@ -25,15 +25,11 @@ include(__DIR__ . '../../backend/ver_diagnos.php');
 
       <h2 class="titulo">DIAGNÓSTICOS</h2>
 
-      <div id="mensajeExitoGlobal"
-        style="display:none; background:#4caf50; color:white; padding:10px; text-align:center; border-radius:4px; margin-bottom:10px;">
-      </div>
-
 
       <!-- Formulario nuevo diagnóstico -->
-      <section class="nuevo-diagnostico">
+      <section class="nuevo-registro">
         <div class="header-form">Nuevo Diagnóstico</div>
-        <form id="formulario" class="formulario" method="POST" action="../backend/guardar_diagnostico.php">
+        <form id="formulario" class="formulario ajax-form"  data-url="../backend/guardar_diagnostico.php">
 
           <div id="grupo__Nombre_Diagnostico" class="formulario__grupo">
             <input type="text" id="Nombre_Diagnostico" name="Nombre_Diagnostico" placeholder="Escriba el diagnóstico" minlength="3" maxlength="50" required>
@@ -59,7 +55,7 @@ include(__DIR__ . '../../backend/ver_diagnos.php');
         <div style="margin-bottom:10px;">
           <button id="btnEditar" disabled>Editar</button>
         </div>
-        <table id="tabla-diagnosticos" class="display">
+        <table id="tabla-catalogo" class="display">
 
           <thead>
 
@@ -87,7 +83,7 @@ include(__DIR__ . '../../backend/ver_diagnos.php');
 
       <script>
         $(document).ready(function() {
-          $('#tabla-diagnosticos').DataTable({
+          $('#tabla-catalogo').DataTable({
             pageLength: 5,
             lengthChange: false,
             language: {
@@ -98,24 +94,31 @@ include(__DIR__ . '../../backend/ver_diagnos.php');
       </script>
 
       <div id="modalEdicion" style="display:none;">
-        <form id="formEdicion">
+        <form id="formEdicion" class="formulario">
           <h2>Editar Diagnóstico</h2>
           <input type="hidden" id="idDiagnostico" name="idDiagnostico">
 
+          <div id="grupo__Comorbilidad" class="formulario__grupo">
           <label>Nombre del diagnóstico:</label>
           <input type="text" id="nombreDiagnostico" name="nombreDiagnostico" minlength="3" maxlength="50" required>
+          <p class="formulario__input-error">El diagnóstico debe tener entre 3 y 50 letras y no contener números.</p>
+          </div>
 
+          <div id="grupo__Comorbilidad" class="formulario__grupo">
           <label>Necesita parámetro:</label>
           <select id="parametroDiagnostico" name="parametroDiagnostico">
             <option value="NO">No</option>
             <option value="SI">Sí</option>
           </select>
+          </div>
 
+          <div id="grupo__Comorbilidad" class="formulario__grupo">
           <label>Estado:</label>
           <select id="estadoDiagnostico" name="estadoDiagnostico">
             <option value="activo">activo</option>
             <option value="inactivo">inactivo</option>
           </select>
+          </div>
 
           <div class="modal-buttons">
           <button type="submit" id="modalGuardar">Guardar</button>
@@ -132,13 +135,15 @@ include(__DIR__ . '../../backend/ver_diagnos.php');
   </div>
 
   <script src='scripts/editar_diagnostico.js'></script>
-  <script src="scripts/mensajes_informativos.js"></script>
-  <script src="scripts/validacion_ingresos.js"></script>
+<script src="../../../shared/scripts/mensajes_informativos.js"></script>
+  <script src="../../../shared/scripts/validacion_ingresos.js"></script>
                         
   <div id="toast" style="display:none; position: fixed; bottom: 20px; right: 20px; 
                         background-color: #333; color: #fff; padding: 15px 20px; 
                         border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); 
                         z-index: 9999; font-family: sans-serif;"></div>
+
+
 </body>
 
 </html>

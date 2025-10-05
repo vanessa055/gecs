@@ -29,6 +29,51 @@
       background: #f9fafb;
     }
 
+
+
+header {
+  grid-area: header;
+  text-align: center;
+    background-color: #021e39;
+    color: white;
+    padding: 1px 5px;
+    height: 50px;
+
+
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    border-bottom: 6px solid #ffb703;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 2.5rem;
+    /* Ajusta el tamaño del logo */
+    margin-right: 5px;
+    /* Espacio entre logo y texto */
+}
+
+
+.cerrar_sesion,
+nav .logo-sesion {
+    text-decoration: none;
+    color: white;
+    padding: 0.3rem;
+    display:flex;
+    align-items:center;
+}
+
+.cerrar_sesion a:hover {
+    background-color: gray;
+    border-radius: 5px;
+}
+/*///////////////////////////////////////---------------------------------------------////////////////////////////////////*/
     .menu-container {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -119,5 +164,82 @@
     /* Ajuste para secciones pequeñas (lado derecho) */
     .small-section .menu-items {
       grid-template-columns: 1fr;
-     
+    }
+  /*/////////////////////////////////////////----------------------/////////////////////////////////////////////*/
+
+ .footer {
+  grid-area: footer;
+
+   background-color: var(--color-barra-lateral); /* color base del footer */
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+}
+    /* Logo + texto */
+.footer-logo {
+      flex: 1;
+      min-width: 220px;
+    }
+.footer-logo h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+.footer-logo p {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 5px;
+    }
+
+    /* Sección "Sobre nosotros" */
+.footer-about {
+      flex: 1;
+      min-width: 220px;
+    }
+.footer-about h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+.footer-about p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    /* Redes sociales */
+.footer-social {
+      flex: 1;
+      min-width: 200px;
+    }
+.footer-social h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+.social-icons a {
+      display: inline-block;
+      margin-right: 10px;
+      text-decoration: none;
+      color: #fff;
+      background: #1f2937;
+      padding: 8px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+.social-icons a:hover {
+      background: #2563eb;
+    }
+
+    /* Derechos reservados */
+.footer-bottom {
+      text-align: center;
+      padding: 15px;
+      font-size: 13px;
+      background-color: #0a0f1c;
+      color: #aaa;
+    }
+
+ .container > div.footer.footer-bottom span {
+      font-weight: bold;
+      color: #fff;
     }

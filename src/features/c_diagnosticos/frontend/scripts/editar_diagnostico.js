@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var table = $('#tabla-diagnosticos').DataTable();
+    var table = $('#tabla-catalogo').DataTable();
     var filaSeleccionada = null;
 
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 
     // Selección de fila
-    $('#tabla-diagnosticos tbody').on('click', 'tr', function () {
+    $('#tabla-catalogo tbody').on('click', 'tr', function () {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
             $('#btnEditar').prop('disabled', true);
@@ -35,7 +35,7 @@ $(document).ready(function() {
             };
         }
         $(document).on('click', function (event) {
-        const tabla = $('#tabla-diagnosticos');
+        const tabla = $('#tabla-catalogo');
         const botonEditar = $('#btnEditar');
         const modal = $('#modalEdicion');
 

@@ -10,9 +10,7 @@ include(__DIR__ . '/../database/conexion.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <link rel="stylesheet" href="../src/shared/styles/header.css">
-    <link rel="stylesheet" href="../src/shared/styles/footer.css">
-    <link rel="stylesheet" href="../public/index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 
@@ -345,6 +343,7 @@ include(__DIR__ . '/../database/conexion.php');
             </div>
         </div>
     </div>
+    
     <div class="footer">
         <footer class="footer">
             <div class="footer-logo">

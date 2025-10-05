@@ -1,8 +1,6 @@
 <?php
 include(__DIR__ . '../../../../../database/conexion.php');
 include(__DIR__ . '../../backend/ver_comorbilidades.php');
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,13 +8,13 @@ include(__DIR__ . '../../backend/ver_comorbilidades.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../../../src/shared/styles/estructura.css">
 
   <title>Document</title>
   <script src="../../../shared/jquery/jquery-3.7.1.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="../../../shared/datatables/datatables.min.css">
-  <script type="text/javascript" src="../../../shared/datatables/datatables.min.js"></script>
-  <link rel="stylesheet" href="../../c_diagnosticos/frontend/styles/diagnos.css">
+  <link rel="stylesheet" href="../../../shared/datatables/datatables.min.css">
+  <link rel="stylesheet" href="../../../shared/styles/estructura.css">
+  <link rel="stylesheet" href="../../../shared/styles/catalogos.css">
+  <script src="../../../shared/datatables/datatables.min.js"></script>
 </head>
 
 <body>
@@ -24,17 +22,17 @@ include(__DIR__ . '../../backend/ver_comorbilidades.php');
     <div class="header"><?php include(__DIR__ . '../../../../shared/header.php') ?></div>
     <div class="content">
 
-      <h2 class="titulo">Comorbilidades</h2>
+      <h2 class="titulo">COMORBILIDADES</h2>
+      <!-- Formulario nueva comorbilidad -->
+      <section class="nuevo-registro">
+        <div class="header-form">Nueva comorbilidad</div>
+        <form id="formulario" class="formulario ajax-form" method="POST" data-url="../backend/guardar_comorbilidad.php">
 
-      <!-- //////////////////////////////////////////-------Formulario nuevo diagnóstico----/////////////////////////////////////// -->
-      <section class="nueva-comorbilidad">
-        <div class="header-form">Nueva Comorbilidad</div>
-        <form id="formulario" class="formulario" method="POST" action="../backend/guardar_comorbilidad.php">
-
-          <div id="grupo__Nombre_Comorbilidad" class="formulario__grupo">
-            <input type="text" name="Comorbilidad" placeholder="Escriba la comorbilidad" minlength="3" maxlength="50" required>
-            <p class="formulario__input-error">El diagnóstico debe tener entre 3 y 50 letras y no contener números.</p>
+          <div id="grupo__Comorbilidad" class="formulario__grupo">
+            <input type="text" id="Comorbilidad" name="Comorbilidad" placeholder="Ej: HTA" minlength="3" maxlength="50" required>
+            <p class="formulario__input-error">La comorbilidad debe tener entre 3 y 50 letras y no contener números.</p>
           </div>
+
           <div class="formulario__grupo">
             <button type="submit" class="btn-guardar">Guardar</button>
           </div>
@@ -43,13 +41,11 @@ include(__DIR__ . '../../backend/ver_comorbilidades.php');
       </section>
 
 
-      <!-- ///////////////////////////////////////-------Tabla para mostrar diagnósticos----//////////////////////////////////// -->
-
       <div class="contenedor-tabla">
-        <div class="editar" style="margin-bottom:10px;">
+        <div style="margin-bottom:10px;">
           <button id="btnEditar" disabled>Editar</button>
         </div>
-        <table id="tabla-comorbilidad" class="display">
+        <table id="tabla-catalogo" class="display">
 
           <thead>
 
@@ -60,12 +56,12 @@ include(__DIR__ . '../../backend/ver_comorbilidades.php');
 
           </thead>
           <tbody>
-            <?php foreach ($diagnosticos as $diag): ?>
-              <tr data-id="<?= $diag['Id_Comorbilidad'] ?>"
-                data-nombre="<?= htmlspecialchars($diag['Comorbilidad'], ENT_QUOTES) ?>"
-                data-estado="<?= $diag['Estado'] ?>">
-                <td><?= htmlspecialchars($diag['Comorbilidad']) ?></td>
-                <td><?= $diag['Estado'] ?></td>
+            <?php foreach ($comorbilidad as $reg): ?>
+              <tr data-id="<?= $reg['Id_Comorbilidad'] ?>"
+                data-nombre="<?= htmlspecialchars($reg['Comorbilidad'], ENT_QUOTES) ?>"
+                data-estado="<?= $reg['Estado'] ?>">
+                <td><?= htmlspecialchars($reg['Comorbilidad']) ?></td>
+                <td><?= $reg['Estado'] ?></td>
               </tr>
             <?php endforeach; ?>
           </tbody>
@@ -74,7 +70,7 @@ include(__DIR__ . '../../backend/ver_comorbilidades.php');
 
       <script>
         $(document).ready(function() {
-          $('#tabla-comorbilidad').DataTable({
+          $('#tabla-catalogo').DataTable({
             pageLength: 5,
             lengthChange: false,
             language: {
@@ -84,48 +80,28 @@ include(__DIR__ . '../../backend/ver_comorbilidades.php');
         });
       </script>
 
-      <!-- //////////////////////////////////////////-------Modal de edición----/////////////////////////////////////// -->
-
-      <div id="modalEdicion" style="display:none;">
-        <form id="formEdicion" class="formulario" action="../backend/editar_diagnostico.php" method="POST">
-          <div id="mensajeRespuesta" class="mensaje" style="display:none;"></div>
-
-          <h2>Editar Diagnóstico</h2>
+      <div id="modalEdicion"  style="display:none;">
+        <form id="formEdicion" class="formulario">
+          <h2>Editar Comorbilidad</h2>
           <input type="hidden" id="idComorbilidad" name="idComorbilidad">
 
-          <!-- Grupo: Nombre Diagnóstico -->
-          <div class="formulario__grupo" id="grupo__nombreComorbilidad">
-            <label for="nombreDiagnostico">Nombre del diagnóstico:</label>
-            <input type="text" id="nombreComorbilidad" name="nombreComorbilidad" minlength="3" maxlength="50" require>
-            <p class="formulario__input-error">Debe tener entre 3 y 50 letras (solo texto).</p>
+           <div id="grupo__Comorbilidad" class="formulario__grupo">
+          <label>Nombre de comorbilidad:</label>
+          <input type="text" id="comorbilidad" name="comorbilidad" minlength="3" maxlength="50" required>
+            <p class="formulario__input-error">La comorbilidad debe tener entre 3 y 50 letras y no contener números.</p>
           </div>
-
-          <!-- Grupo: Estado -->
-          <div  id="grupo__estadoComorbilidad">
-            <label for="estadoComorbilidad">Estado:</label>
-            <select id="estadoComorbilidad" name="estadComorbilidad">
-              <option value="">Seleccione...</option>
-              <option value="activo">Activo</option>
-              <option value="inactivo">Inactivo</option>
-            </select>
-            <p class="formulario__input-error">Debe seleccionar un estado válido.</p>
-          </div>
-
+<div id="grupo__Comorbilidad" class="formulario__grupo">
+          <label>Estado:</label>
+          <select id="estado" name="estado">
+            <option value="activo">activo</option>
+            <option value="inactivo">inactivo</option>
+          </select>
+</div>
           <div class="modal-buttons">
-            <button type="submit" class="modalGuardar">Guardar</button>
-            <button type="button" id="btnCerrarModal">Cancelar</button>
+          <button type="submit" id="modalGuardar">Guardar</button>
+          <button type="button" id="btnCerrarModal">Cancelar</button>
           </div>
         </form>
-
-      </div>
-
-
-      <div id="modalEmergente" class="modal">
-        <div class="modal-contenido">
-          <h2 id="modalTitulo"></h2>
-          <p id="modalMensaje"></p>
-          <button id="cerrarModal">Aceptar</button>
-        </div>
       </div>
 
 
@@ -135,8 +111,21 @@ include(__DIR__ . '../../backend/ver_comorbilidades.php');
 
   </div>
 
-  <script src='../../c_diagnosticos/frontend/scripts/script.js'></script>
-  <script src="../../c_diagnosticos/frontend/scripts/datoexistente_form.js"></script>
+  
+ <script src="../../../shared/scripts/mensajes_informativos.js"></script>
+  <!--<script src="scripts/validacion_ingresos.js"></script>-->
+                        
+  <div id="toast" style="display:none; position: fixed; bottom: 20px; right: 20px; 
+                        background-color: #333; color: #fff; padding: 15px 20px; 
+                        border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); 
+                        z-index: 9999; font-family: sans-serif;"></div>
+
+
+<script src="scripts/editar_comorbilidad.js"></script>
+ <script src="../../../shared/scripts/modaleditar.js"></script>
+ <script src="../../../shared/scripts/validacion_ingresos.js"></script>
+
+
 
 </body>
 
