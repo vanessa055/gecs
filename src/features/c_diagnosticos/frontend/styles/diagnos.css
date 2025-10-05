@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+
+:root {
+    --color-barra-lateral: #021E39;
+    --color-texto: rgb(0, 0, 0);
+    --color-texto-menu: rgb(134, 136, 144);
+    --color-menu-hover: rgb(255 183 3);
+    --color-menu-hover-text: rgb(0, 0, 0);
+    --color-boton-texto: rgb(255, 255, 255);
+    --color-linea: rgb(255 183 3);
+    --color-switch-base: rgb(143, 146, 155);
+    --color-switch-circulo: rgb(3, 3, 3);
+    --color-scroll: rgb(192, 192, 192);
+    --color-scroll-hover: rgb(134, 134, 134);
+    --color-body: #F2F8FC;
+    --color-moon: rgba(0, 0, 0, 0.344);
+    --color-contenedor: #021E39;
+}
+
+
+
+colgroup
+{
+  background-color: #021e392a;
+}
+
+.container > div.content
+{
+    padding-top: 10px;
+    background-color:var(--color-body)
+    
+}
+
+
+.titulo {
+  text-align: center;
+  font-weight: bold;
+  font-size: 23px;
+  margin-bottom: 10px;
+  
+}
+
+/* Caja del formulario */
+.nuevo-diagnostico {
+  width: 500px;
+  margin: 4px auto;
+  border: 1px solid #ffb703;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+  
+}
+
+
+
+.header-form {
+  background: var(--color-contenedor);
+  color: #fff;
+  padding: 5px;
+  text-align: center;   
+  font-weight: bold;
+  border-bottom: 4px solid #ffb703;
+}
+
+
+
+
+
+/* Contenedor de ordenamiento */
+.orden-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.orden-container label {
+  font-weight: bold;
+}
+
+.orden-container button {
+  padding: 8px 14px;
+  border: 2px solid #003049;
+  border-radius: 10px;
+  background-color: #fff;
+  color: #003049;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.orden-container button:hover {
+  background-color: #003049;
+  color: #fff;
+}
+
+/* Tabla */
+#tabla-diagnosticos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+#tabla-diagnosticos thead {
+  background-color: #003049;
+  color: #fff;
+}
+
+#tabla-diagnosticos th, #tabla-diagnosticos td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+#tabla-diagnosticos tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#tabla-diagnosticos tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+
+
+
+
+/*///////////////////////////////-----TABLA---------////////////////////////////*/
+
+/* Tabla */
+table {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+thead {
+  background: #f2f2f2;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-contenedor);
+  color: var(--color-contenedor);
+}
+tbody tr:nth-child(odd) {
+  background: var(--color-contenedor);
+  color: black;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .nuevo-diagnostico {
+    width: 95%;
+  }
+
+  .busqueda input {
+    width: 100%;
+  }
+}
+
+
+.formulario {
+  margin-bottom: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+
+}
+
+.formulario input,
+.formulario select {
+  width: 400px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #888;
+  font-size: 15px;
+  margin: 0 auto;
+}
+
+.formulario label
+{
+  padding: 5px 0 2px 20px;
+}
+
+
+/* Cuando el campo es correcto */
+.formulario__grupo-correcto input,
+.formulario__grupo-correcto select {
+    border-color: #4CAF50; /* verde */
+}
+
+/* Cuando el campo es incorrecto */
+.formulario__grupo-incorrecto input,
+.formulario__grupo-incorrecto select {
+    border-color: #f44336; /* rojo */
+}
+
+/* Mensaje de error */
+.formulario__input-error {
+    display: none;
+    color: #f44336;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Mostrar mensaje de error */
+.formulario__input-error-activo {
+    display: block;
+}
+
+.btn-guardar {
+  width: 150px;
+  background: var(--color-contenedor);
+  color: #fff;
+  border: none;
+  padding: 12px 0px !important;
+  border-radius: 5px !important;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out !important;
+  font-size: 16px;
+}
+.btn-guardar:hover {
+  background: var(--color-linea);
+  color: var(--color-contenedor);
+}
+
+
+.mensaje-exito-global {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  animation: fadeInDown 0.4s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/*////////////////////////////////////////-------tabla para mostrar diagnósticos----//////////////////////////////////////////*/
+
+table thead
+{
+  background-color:var(--color-contenedor) !important;
+  color: var(--color-body);
+}
+
+
+  /* Haz que la tabla se expanda correctamente */
+  .dataTables_wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table.dataTable {
+    width: 100% !important;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+
+  /* Para que las columnas no se vean apretadas */
+  table.dataTable th,
+  table.dataTable td {
+    white-space: nowrap;
+    padding: 10px;
+  }
+
+  /* Mejor alineación con el formulario */
+  .contenedor-tabla {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+  }
+/*/////////////////////////////////////////////////////---MODAL---//////////////////////////////////////////////////////*/
+ 
+
+
+
+#btnEditar {
+  position: absolute;
+    background-color: var(--color-contenedor);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+    width: 100px;
+    z-index: 10;
+}
+
+#btnEditar:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#btnEditar:hover:not(:disabled) {
+    background-color: var(--color-linea);
+}
+
+
+/* Ubicar botón dentro del contenedor del filtro de DataTables */
+.dataTables_filter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+
+/* Fondo del modal */
+#modalEdicion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* fondo semi-transparente */
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Contenedor del formulario */
+#modalEdicion form {
+    background-color: #f8f8f8; /* fondo claro */
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 400px;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado */
+#modalEdicion h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+
+}
+
+/* Labels y inputs */
+#modalEdicion label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#modalEdicion input, 
+#modalEdicion select {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Botones */
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.modal-buttons button#modalGuardar {
+    background-color: #021E39;
+    color: white;
+}
+
+.modal-buttons button#modalGuardar:hover {
+    background-color: #021e39cb;
+}
+
+.modal-buttons button#btnCerrarModal {
+    background-color: #021e3952;
+    color: white;
+}
+
+.modal-buttons button#btnCerrarModal:hover {
+    background-color: #021e393b;
+    color: #021E39;
+}
+
+/*///////////////////////////////////////////////////-----------//////////////////////////////////////////////////*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  animation: aparecer 0.3s ease;
+}
+
+.modal-contenido h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #c0392b;
+}
+
+.modal-contenido p {
+  margin: 10px 0 20px;
+  color: #333;
+}
+
+.modal-contenido button {
+  background-color: #3085d6;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-contenido button:hover {
+  background-color: #2563b3;
+}
+
+@keyframes aparecer {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/*////////////////////////////////////////////////////////////----------------------------/////////////////////////////////////////////////////////////*/
+.mensaje {
+  display: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+

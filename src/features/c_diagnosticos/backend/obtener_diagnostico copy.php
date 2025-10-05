@@ -1,15 +1,16 @@
 <?php
-include(__DIR__ . '../../../../database/conexion.php');
+require_once __DIR__ . '/../../../../database/conexion.php';
 
-$resultado = $conn->query("SELECT * FROM diagnosticos");
+$sql = "
+  SELECT
+    Id_Diagnostico,
+    Nombre_Diagnostico,
+    Necesita_Parametro,
+    Estado
+  FROM Diagnosticos
+";
 
-$datos = [];
+$stmt = $pdo->query($sql);
+$diagnosticos = $stmt->fetchAll();
 
-while ($row = $resultado->fetch_assoc()) {
-    $datos[] = $row;
-}
-
-echo json_encode($datos);
-
-$conn->close();
-?>
+return $diagnosticos;

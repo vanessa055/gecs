@@ -10,8 +10,10 @@ require_once __DIR__ . '/../../../../database/conexion.php';
 // Consulta SQL
 $sql = "
   SELECT
+    D.Id_Diagnostico,
     D.Nombre_Diagnostico,
     D.Necesita_Parametro,
+    D.Id_Estado,
     E.Estado
   FROM Diagnosticos D
   JOIN Estados E ON E.Id_Estado = D.Id_Estado

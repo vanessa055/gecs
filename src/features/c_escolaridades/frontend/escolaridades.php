@@ -16,8 +16,9 @@ include(__DIR__ . '/../../../../database/conexion.php');
          <div class="content">
             <h1>hola</h1>
         </div>
-        <div class="menu"><?php include(__DIR__ . '../../../../shared/menunavegacion.php') ?></div>
         <div class="footer"><?php include(__DIR__ . '../../../../shared/footer.php') ?></div>
+        <div class="menu"><?php include(__DIR__ . '../../../../shared/menunavegacion.php') ?></div>
+        
 </div>
 </body>
 </html>
